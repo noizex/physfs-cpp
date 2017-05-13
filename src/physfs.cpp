@@ -156,12 +156,12 @@ Version getLinkedVersion() {
 	return version;
 }
 
-void init(const char* argv0) {
-	PHYSFS_init(argv0);
+int init(const char* argv0) {
+	return PHYSFS_init(argv0);
 }
 
-void deinit() {
-	PHYSFS_deinit();
+int deinit() {
+    return PHYSFS_deinit();
 }
 
 ArchiveInfoList supportedArchiveTypes() {
@@ -206,12 +206,12 @@ string getWriteDir() {
 	return PHYSFS_getWriteDir();
 }
 
-void setWriteDir(const string& newDir) {
-	PHYSFS_setWriteDir(newDir.c_str());
+int setWriteDir(const string& newDir) {
+	return PHYSFS_setWriteDir(newDir.c_str());
 }
 
-void removeFromSearchPath(const string& oldDir) {
-	PHYSFS_removeFromSearchPath(oldDir.c_str());
+int removeFromSearchPath(const string& oldDir) {
+	return PHYSFS_removeFromSearchPath(oldDir.c_str());
 }
 
 StringList getSearchPath() {
@@ -228,17 +228,17 @@ void getSearchPath(StringCallback callback, void * extra) {
 	PHYSFS_getSearchPathCallback(callback, extra);
 }
 
-void setSaneConfig(const string& orgName, const string& appName,
+int setSaneConfig(const string& orgName, const string& appName,
 		const string& archiveExt, bool includeCdRoms, bool archivesFirst) {
-	PHYSFS_setSaneConfig(orgName.c_str(), appName.c_str(), archiveExt.c_str(), includeCdRoms, archivesFirst);
+	return PHYSFS_setSaneConfig(orgName.c_str(), appName.c_str(), archiveExt.c_str(), includeCdRoms, archivesFirst);
 }
 
-void mkdir(const string& dirName) {
-	PHYSFS_mkdir(dirName.c_str());
+int mkdir(const string& dirName) {
+	return PHYSFS_mkdir(dirName.c_str());
 }
 
-void deleteFile(const string& filename) {
-	PHYSFS_delete(filename.c_str());
+int deleteFile(const string& filename) {
+	return PHYSFS_delete(filename.c_str());
 }
 
 string getRealDir(const string& filename) {
@@ -283,12 +283,12 @@ bool symbolicLinksPermitted() {
 	return PHYSFS_symbolicLinksPermitted();
 }
 
-void setAllocator(const Allocator* allocator) {
+int setAllocator(const Allocator* allocator) {
 	PHYSFS_setAllocator(allocator);
 }
 
-void mount(const string& newDir, const string& mountPoint, bool appendToPath) {
-	PHYSFS_mount(newDir.c_str(), mountPoint.c_str(), appendToPath);
+int mount(const string& newDir, const string& mountPoint, bool appendToPath) {
+	return PHYSFS_mount(newDir.c_str(), mountPoint.c_str(), appendToPath);
 }
 
 string getMountPoint(const string& dir) {

@@ -77,9 +77,9 @@ public:
 
 Version getLinkedVersion();
 
-void init(char const * argv0);
+int init(char const * argv0);
 
-void deinit();
+int deinit();
 
 ArchiveInfoList supportedArchiveTypes();
 
@@ -97,19 +97,19 @@ string getUserDir();
 
 string getWriteDir();
 
-void setWriteDir(string const & newDir);
+int setWriteDir(string const & newDir);
 
-void removeFromSearchPath(string const & oldDir);
+int removeFromSearchPath(string const & oldDir);
 
 StringList getSearchPath();
 
 void getSearchPath(StringCallback callback, void * extra);
 
-void setSaneConfig(string const & orgName, string const & appName, string const & archiveExt, bool includeCdRoms, bool archivesFirst);
+int setSaneConfig(string const & orgName, string const & appName, string const & archiveExt, bool includeCdRoms, bool archivesFirst);
 
-void mkdir(string const & dirName);
+int mkdir(string const & dirName);
 
-void deleteFile(string const & filename);
+int deleteFile(string const & filename);
 
 string getRealDir(string const & filename);
 
@@ -129,9 +129,9 @@ bool isInit();
 
 bool symbolicLinksPermitted();
 
-void setAllocator(Allocator const * allocator);
+int setAllocator(Allocator const * allocator);
 
-void mount(string const & newDir, string const & mountPoint, bool appendToPath);
+int mount(string const & newDir, string const & mountPoint, bool appendToPath);
 
 string getMountPoint(string const & dir);
 
